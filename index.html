@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anusha M | IoT &amp; Cybersecurity Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Anusha M, final-year Computer Science and Engineering student specializing in IoT and Cybersecurity including Blockchain Technology.">
+  <meta name="theme-color" content="#0b1033">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230b1033'/%3E%3Ctext x='32' y='42' font-family='sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%2343e0ff'%3EAM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Loaded in the head so the saved theme applies before first paint -->
+  <script src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Loading screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-ring"><span>AM</span></div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <!-- Background layers -->
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <canvas id="network" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="header">
+    <a class="brand" href="#home" aria-label="Anusha M, back to top"><span class="brand-mark">AM</span><span class="brand-name">Anusha M</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <span class="nav-pill" id="navPill" aria-hidden="true"></span>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 13.5A9 9 0 1 1 10.500 3a7 7 0 0 0 10.500 10.500z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero section" id="home" aria-labelledby="heroName">
+      <div class="hero-copy">
+        <p class="hero-hello reveal">Hello, I'm</p>
+        <h1 id="heroName" class="split">Anusha M</h1>
+        <p class="hero-role reveal">Final-year Computer Science &amp; Engineering student focused on <span class="rotator"><span id="rotator">IoT &amp; Cybersecurity</span></span></p>
+        <p class="hero-text reveal">Motivated and detail-oriented, with a strong academic record, a disciplined work ethic and a collaborative approach to problem-solving.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary magnetic" href="#projects">View projects</a>
+          <a class="btn btn-glass magnetic" href="#contact">Get in touch</a>
+        </div>
+        <ul class="hero-links reveal">
+          <li><a href="https://github.com/anusha812-alt" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/anusha-m-5b3b27381" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:anushamys812@gmail.com">Email</a></li>
+        </ul>
+      </div>
+
+      <!-- Interactive illustration of the Smart Locker dual-factor idea -->
+      <div class="hero-visual reveal">
+        <div class="hero-stack">
+        <div class="badges" aria-hidden="true"><span>ESP32</span><span>Python</span><span>Linux</span></div>
+        <div class="locker glass tilt" id="locker" data-state="idle">
+          <div class="locker-head">
+            <div>
+              <h2>Try two-factor unlock</h2>
+              <p>Inspired by my Smart Locker project</p>
+            </div>
+            <svg class="lock-icon" viewBox="0 0 48 48" aria-hidden="true"><path class="shackle" d="M15 22v-7a9 9 0 0 1 18 0v7"/><rect x="10" y="22" width="28" height="20" rx="6"/><path d="M24 29v6"/></svg>
+          </div>
+          <button class="finger" id="finger" type="button">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 24c3-9 10-14 18-14s15 5 18 14M12 40c0-3 2-6 2-10 0-9 8-15 18-15s18 7 18 16c0 4 0 7-1 10M19 48c2-5 3-10 3-17 0-6 4-10 10-10s11 4 11 11c0 9-1 15-3 21M26 54c3-7 5-14 5-23 0-1 1-2 2-2s3 1 3 3c0 10-2 18-5 24"/></svg>
+            <span id="fingerLabel">1. Tap to scan fingerprint</span>
+          </button>
+          <div class="pin" id="pinDots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="keypad" id="keypad" role="group" aria-label="2. Demo keypad"></div>
+          <p class="locker-status" id="lockerStatus" role="status">Locker closed. Start with the fingerprint scan.</p>
+          <p class="locker-note">Browser demo only, with sample code <strong>2580</strong>. No biometric data is read.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key figures -->
+    <section class="stats glass reveal" aria-label="Highlights">
+      <div><strong data-count="8.69" data-decimals="2">8.69</strong><span>CGPA in B.E.</span></div>
+      <div><strong data-count="2">2</strong><span>Team projects</span></div>
+      <div><strong data-count="17">17</strong><span>Listed technical skills</span></div>
+      <div><strong data-count="3">3</strong><span>Certifications</span></div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <header class="section-head"><h2 id="aboutTitle" class="reveal">About me</h2></header>
+      <div class="about-grid">
+        <div class="about-story reveal">
+          <p class="lead">I am a curious, fast-learning final-year engineering student who values quality, reliability and user-friendly design.</p>
+          <p>I am pursuing a B.E. in Computer Science &amp; Engineering, specializing in IoT &amp; Cybersecurity including Blockchain Technology, at Maharaja Institute of Technology under Visvesvaraya Technological University (VTU).</p>
+          <p>I am eager to take on responsibility, grow through real-world experience and contribute meaningfully to a team.</p>
+        </div>
+        <ul class="strengths stagger">
+          <li class="glass spotlight reveal"><h3>Detail-oriented</h3><p>Motivated, with attention to detail and a value for quality and reliability.</p></li>
+          <li class="glass spotlight reveal"><h3>Disciplined</h3><p>A disciplined work ethic backed by a strong academic record.</p></li>
+          <li class="glass spotlight reveal"><h3>Collaborative</h3><p>A collaborative approach to problem-solving.</p></li>
+          <li class="glass spotlight reveal"><h3>Fast-learning</h3><p>Curious and quick to learn, and eager to grow through real-world experience.</p></li>
+          <li class="glass spotlight reveal"><h3>User-focused</h3><p>Values user-friendly design.</p></li>
+          <li class="glass spotlight reveal"><h3>Responsible</h3><p>Eager to take on responsibility and contribute to a team.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skillsTitle">
+      <header class="section-head">
+        <h2 id="skillsTitle" class="reveal">Technical skills</h2>
+        <p class="reveal">Choose a category to highlight it. Tags show where a skill is named in a project or certification.</p>
+      </header>
+      <div class="skills-layout">
+        <div class="chart glass reveal">
+          <div class="donut">
+            <svg id="donut" viewBox="0 0 200 200" aria-hidden="true"></svg>
+            <div class="donut-center" aria-live="polite"><strong id="donutNumber">17</strong><span id="donutLabel">skills in total</span></div>
+          </div>
+          <p class="chart-note">The ring shows how many skills are listed in each category. It does not rate proficiency.</p>
+          <div class="filters" role="group" aria-label="Filter skills by category">
+            <button type="button" data-filter="all" aria-pressed="true">All skills</button>
+            <button type="button" data-filter="programming" aria-pressed="false">Programming &amp; Data</button>
+            <button type="button" data-filter="databases" aria-pressed="false">Databases</button>
+            <button type="button" data-filter="security" aria-pressed="false">Cybersecurity &amp; Networking</button>
+            <button type="button" data-filter="iot" aria-pressed="false">IoT &amp; Embedded</button>
+            <button type="button" data-filter="tools" aria-pressed="false">Tools &amp; Platforms</button>
+          </div>
+        </div>
+        <div class="skill-groups stagger">
+          <article class="skill-group glass spotlight reveal" data-cat="programming" data-name="Programming &amp; Data">
+            <h3>Programming &amp; Data</h3>
+            <ul><li>Python <small>Smart Locker</small><small>Worker Ecosystem</small><small>Kaggle certification</small></li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li></ul>
+          </article>
+          <article class="skill-group glass spotlight reveal" data-cat="databases" data-name="Databases">
+            <h3>Databases</h3>
+            <ul><li>MySQL <small>Worker Ecosystem</small></li><li>MongoDB</li></ul>
+          </article>
+          <article class="skill-group glass spotlight reveal" data-cat="security" data-name="Cybersecurity &amp; Networking">
+            <h3>Cybersecurity &amp; Networking</h3>
+            <ul><li>Network Security</li><li>Wireshark</li><li>pfSense</li><li>Keycloak</li></ul>
+          </article>
+          <article class="skill-group glass spotlight reveal" data-cat="iot" data-name="IoT &amp; Embedded Systems">
+            <h3>IoT &amp; Embedded Systems</h3>
+            <ul><li>ESP32 <small>Smart Locker</small></li><li>Arduino Uno</li><li>Arduino IDE</li><li>Sensors</li><li>Actuators</li></ul>
+          </article>
+          <article class="skill-group glass spotlight reveal" data-cat="tools" data-name="Tools &amp; Platforms">
+            <h3>Tools &amp; Platforms</h3>
+            <ul><li>Git</li><li>Linux</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects" aria-labelledby="projectsTitle">
+      <header class="section-head">
+        <h2 id="projectsTitle" class="reveal">Projects</h2>
+        <p class="reveal">Two projects, each built by a team of three. Open a project for the full details.</p>
+      </header>
+
+      <article class="project glass spotlight reveal">
+        <div class="project-art art-locker" aria-hidden="true">
+          <div class="flow">
+            <div class="node">Fingerprint sensor</div>
+            <div class="node">Keypad</div>
+            <div class="wire"></div>
+            <div class="node chip">ESP32</div>
+            <div class="wire short"></div>
+            <div class="node result">Smart locker</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-meta">Team of 3, built with Python and ESP32</p>
+          <h3>Smart Locker System using IoT</h3>
+          <p>An IoT-based smart locker that protects valuable gadgets such as mobile phones and pen drives, giving users enhanced security and privacy.</p>
+          <ul class="checks">
+            <li>Dual-factor authentication with fingerprint verification and keypad password entry</li>
+            <li>Delivered as a working model designed for accuracy and ease of use</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies and hardware"><li>Python</li><li>ESP32</li><li>Fingerprint sensor</li><li>Keypad</li></ul>
+          <button class="btn btn-primary magnetic" type="button" data-open="dlgLocker" aria-haspopup="dialog">Smart Locker details</button>
+        </div>
+      </article>
+
+      <article class="project project-flip glass spotlight reveal">
+        <div class="project-art art-map" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <path class="road" d="M-10 70H410M-10 190C90 150 190 260 410 200M90-10V310M270-10C240 100 320 190 290 310M-10 260L180-10"/>
+            <path class="route" d="M90 222C110 150 180 190 205 130S270 70 308 78"/>
+            <g transform="translate(90 222)"><circle class="pulse" r="22"/><circle class="dot-a" r="9"/><text y="38">Customer</text></g>
+            <g transform="translate(308 78)"><circle class="pulse late" r="22"/><circle class="dot-b" r="9"/><text y="38">Worker</text></g>
+          </svg>
+          <span class="art-caption">Illustrative map</span>
+        </div>
+        <div class="project-body">
+          <p class="project-meta">Team of 3, built with Python and MySQL</p>
+          <h3>Smart Worker and Customer Ecosystem using AI</h3>
+          <p>A web platform that makes finding and working with service workers easier and less time-consuming for both workers and customers.</p>
+          <ul class="checks">
+            <li>Worker search with an AI-driven location feature showing worker and customer on a map</li>
+            <li>Front-end and back-end development contributions, with a working prototype delivered</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies and features"><li>Python</li><li>MySQL</li><li>AI-driven location</li><li>Web platform</li></ul>
+          <button class="btn btn-primary magnetic" type="button" data-open="dlgWorker" aria-haspopup="dialog">Worker Ecosystem details</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education" aria-labelledby="eduTitle">
+      <header class="section-head"><h2 id="eduTitle" class="reveal">Education</h2></header>
+      <ol class="timeline" id="timeline">
+        <li class="reveal">
+          <div class="when"><time>2023 – 2027</time><span>Expected</span></div>
+          <div class="edu glass spotlight">
+            <div><h3>B.E. in Computer Science &amp; Engineering</h3>
+              <p>Specialization: IoT &amp; Cybersecurity including Blockchain Technology</p>
+              <p class="school">Maharaja Institute of Technology, Visvesvaraya Technological University (VTU)</p></div>
+            <div class="score"><strong>8.69</strong><span>CGPA</span></div>
+          </div>
+        </li>
+        <li class="reveal">
+          <div class="when"><time>2023</time></div>
+          <div class="edu glass spotlight">
+            <div><h3>Pre-University (12th Standard)</h3>
+              <p class="school">Sadvidhya Composite Pre University College, Karnataka PU Board</p></div>
+            <div class="score"><strong>88.96%</strong><span>Score</span></div>
+          </div>
+        </li>
+        <li class="reveal">
+          <div class="when"><time>2021</time></div>
+          <div class="edu glass spotlight">
+            <div><h3>SSLC (10th Standard)</h3>
+              <p class="school">Sadvidhya High School, Karnataka SSLC Board</p></div>
+            <div class="score"><strong>86%</strong><span>Score</span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section" id="certifications" aria-labelledby="certTitle">
+      <header class="section-head"><h2 id="certTitle" class="reveal">Certifications</h2></header>
+      <ul class="certs stagger">
+        <li class="cert glass spotlight tilt reveal"><span class="seal" aria-hidden="true">Py</span><h3>Python Coder</h3><p>Kaggle</p><time datetime="2025">2025</time></li>
+        <li class="cert glass spotlight tilt reveal"><span class="seal" aria-hidden="true">ℏ</span><h3>Hashgraph Developer</h3><p>Hedera</p><time datetime="2025">2025</time></li>
+        <li class="cert glass spotlight tilt reveal">
+          <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6zM8.500 12l2.500 2.500 4.500-5"/></svg></span>
+          <h3>Introduction to Cybersecurity</h3><p>Cisco</p><time datetime="2025">2025</time></li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-labelledby="contactTitle">
+      <div class="contact glass reveal">
+        <h2 id="contactTitle">Let's connect</h2>
+        <p>I'm eager to take on responsibility, learn through real-world experience and contribute to a team. Reach me through any of these.</p>
+        <ul class="contact-list">
+          <li><a href="mailto:anushamys812@gmail.com"><span>Email</span><strong>anushamys812<wbr>@gmail.com</strong></a><button type="button" class="copy" data-copy="anushamys812@gmail.com" aria-label="Copy email address">Copy</button></li>
+          <li><a href="tel:8088965974"><span>Phone</span><strong>8088965974</strong></a><button type="button" class="copy" data-copy="8088965974" aria-label="Copy phone number">Copy</button></li>
+          <li><a href="https://www.linkedin.com/in/anusha-m-5b3b27381" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>linkedin.com/in/anusha-m-5b3b27381</strong></a><button type="button" class="copy" data-copy="https://www.linkedin.com/in/anusha-m-5b3b27381" aria-label="Copy LinkedIn address">Copy</button></li>
+          <li><a href="https://github.com/anusha812-alt" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>github.com/anusha812-alt</strong></a><button type="button" class="copy" data-copy="https://github.com/anusha812-alt" aria-label="Copy GitHub address">Copy</button></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Anusha M</p>
+    <a href="#home">Back to top</a>
+  </footer>
+
+  <!-- Project detail dialogs -->
+  <dialog class="modal" id="dlgLocker" aria-labelledby="dlgLockerTitle">
+    <div class="modal-inner">
+      <button type="button" class="icon-btn modal-close" data-close aria-label="Close project details">✕</button>
+      <h2 id="dlgLockerTitle">Smart Locker System using IoT</h2>
+      <p class="project-meta">Team of 3, built with Python and ESP32</p>
+      <h3>Purpose</h3>
+      <p>Developed an IoT-based smart locker to protect valuable gadgets such as mobile phones and pen drives, providing users with enhanced security and privacy.</p>
+      <h3>Authentication</h3>
+      <p>Implemented dual-factor authentication combining fingerprint verification and keypad password entry. The locker opens only when the correct password is entered and remains closed otherwise.</p>
+      <h3>Hardware and code</h3>
+      <p>Wired the hardware using an ESP32, fingerprint sensor and keypad, and wrote the Python code that verifies the password.</p>
+      <h3>Outcome</h3>
+      <p>Delivered a working model designed with accuracy and ease of use in mind.</p>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="dlgWorker" aria-labelledby="dlgWorkerTitle">
+    <div class="modal-inner">
+      <button type="button" class="icon-btn modal-close" data-close aria-label="Close project details">✕</button>
+      <h2 id="dlgWorkerTitle">Smart Worker and Customer Ecosystem using AI</h2>
+      <p class="project-meta">Team of 3, built with Python and MySQL</p>
+      <h3>Purpose</h3>
+      <p>Built a web platform that makes finding and working with service workers easier and less time-consuming for both workers and customers.</p>
+      <h3>AI-driven location</h3>
+      <p>Enabled customers to search for workers on the website, with an AI-driven location feature that displays the locations of both the worker and the customer on a map.</p>
+      <h3>Development</h3>
+      <p>Contributed to both front-end and back-end development using Python, with MySQL as the database.</p>
+      <h3>Outcome</h3>
+      <p>Delivered a working prototype of the complete system.</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
